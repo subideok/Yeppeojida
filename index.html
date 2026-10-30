@@ -10,11 +10,11 @@
 <helmet>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;1,300&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;1,300&family=Instrument+Serif:ital@0;1&family=Bodoni+Moda:ital,opsz,wght@1,6..96,400&family=EB+Garamond:ital@1&display=swap">
 <script src="./image-slot.js"></script>
 <style>
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{margin:0;background:#F4F0EB;color:#222120;font-family:Pretendard,-apple-system,"Apple SD Gothic Neo",sans-serif;word-break:keep-all;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{margin:0;background:#F4F0EB;color:#222120;font-family:Pretendard,-apple-system,"Apple SD Gothic Neo",sans-serif;word-break:keep-all;-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent;overflow-x:hidden}
 *{box-sizing:border-box}
 a{color:#222120;text-decoration:none}
 a:hover{color:#6B625A}
@@ -76,10 +76,10 @@ button{font-family:inherit}
   </div>
 </section>
 
-<section id="problem" data-screen-label="02 문제제기" style="padding:clamp(110px,13vw,200px) clamp(20px,3vw,40px);background:#F4F0EB;scroll-margin-top:40px">
+<section id="problem" data-screen-label="02 문제제기" style="padding:clamp(72px,13vw,200px) clamp(20px,3vw,40px);background:#F4F0EB;scroll-margin-top:40px">
   <div style="max-width:1440px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(72px,9vw,140px)">
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:clamp(48px,7vw,120px);align-items:start">
-      <div style="display:flex;flex-direction:column;gap:clamp(24px,2.6vw,34px);position:sticky;top:clamp(96px,12vh,140px)">
+      <div style="display:flex;flex-direction:column;gap:clamp(24px,2.6vw,34px);position:{{ stickyPos }};top:clamp(96px,12vh,140px)">
         <span data-reveal="up" style="font-family:Cormorant,serif;font-size:20px;font-style:italic;color:#8A8077">Before you decide</span>
         <h2 style="margin:0;font-size:clamp(32px,3.8vw,56px);font-weight:300;line-height:1.32;letter-spacing:-0.05em;color:#2A2928">
           <span style="display:block;overflow:hidden"><span data-reveal="line" style="display:block">한번의 시술이</span></span>
@@ -111,7 +111,7 @@ button{font-family:inherit}
       <ol style="list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:0 clamp(24px,3vw,48px)">
         <sc-for list="{{ worries }}" as="w" hint-placeholder-count="4">
           <li style="display:flex;flex-direction:column;gap:20px;padding:clamp(28px,3vw,40px) 0;border-bottom:1px solid #D9D1C7">
-            <span style="font-family:Cormorant,serif;font-style:italic;font-size:clamp(34px,3.4vw,52px);line-height:1;color:#A0958A">{{ w.n }}</span>
+            <span style="align-self:flex-start;display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:#FFFFFF;font-family:{{ numFF }};font-style:italic;font-size:20px;font-weight:400;line-height:1;padding-top:2px;color:#6B625A">{{ w.n }}</span>
             <span style="position:relative;align-self:flex-start;font-size:clamp(19px,1.7vw,24px);font-weight:500;letter-spacing:-0.04em;line-height:1.45;color:#2A2928">{{ w.q }}</span>
             <p style="margin:0;font-size:14px;line-height:1.85;color:#4A4540;text-wrap:pretty">{{ w.a }}</p>
           </li>
@@ -121,7 +121,7 @@ button{font-family:inherit}
   </div>
 </section>
 
-<section id="ba" data-screen-label="03 비포 애프터" style="padding:clamp(110px,13vw,200px) 0;background:#E9E3DC;scroll-margin-top:40px;overflow:hidden">
+<section id="ba" data-screen-label="03 비포 애프터" style="padding:clamp(72px,13vw,200px) 0;background:#E9E3DC;scroll-margin-top:40px;overflow:hidden">
   <div style="max-width:1440px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(56px,7vw,104px)">
     <div style="display:flex;flex-direction:column;align-items:center;gap:12px;padding:0 clamp(20px,3vw,40px);text-align:center">
       <span data-reveal="up" style="font-family:Cormorant,serif;font-size:20px;font-style:italic;color:#8A8077">Portfolio</span>
@@ -132,14 +132,14 @@ button{font-family:inherit}
         <div data-reveal="up" style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;padding:0 clamp(20px,3vw,40px)">
           <div style="display:flex;align-items:baseline;gap:14px;flex-wrap:wrap">
             <h3 style="margin:0;font-size:clamp(22px,2.2vw,32px);font-weight:500;letter-spacing:-0.045em;color:#2A2928">{{ r.t }}</h3>
-            <span style="font-family:Cormorant,serif;font-size:clamp(17px,1.5vw,22px);font-style:italic;color:#8A8077">{{ r.en }} · {{ r.n }}</span>
+            <span style="font-family:Cormorant,serif;font-size:clamp(17px,1.5vw,22px);font-style:italic;color:#8A8077">{{ r.en }}</span>
           </div>
-          <div style="display:flex;gap:8px">
+          <div style="display:{{ deskDisplay }};gap:8px">
             <button onClick="{{ r.prev }}" aria-label="이전" style="width:48px;height:48px;border:1px solid #2A2928;border-radius:50%;background:transparent;color:#2A2928;font-size:16px;cursor:pointer;transition:background .3s,color .3s" style-hover="background:#2A2928;color:#FFFFFF">←</button>
             <button onClick="{{ r.next }}" aria-label="다음" style="width:48px;height:48px;border:1px solid #2A2928;border-radius:50%;background:transparent;color:#2A2928;font-size:16px;cursor:pointer;transition:background .3s,color .3s" style-hover="background:#2A2928;color:#FFFFFF">→</button>
           </div>
         </div>
-        <div id="{{ r.id }}" data-slider="" style="display:flex;gap:clamp(10px,1.2vw,16px);overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding:0 clamp(20px,3vw,40px);scrollbar-width:none;user-select:none;padding:0 clamp(20px,3vw,40px)">
+        <div id="{{ r.id }}" data-slider="" data-autoflow="1" data-dir="{{ r.dir }}" style="display:flex;gap:clamp(10px,1.2vw,16px);overflow-x:auto;scroll-snap-type:none;scroll-padding:0 clamp(20px,3vw,40px);scrollbar-width:none;user-select:none;padding:0 clamp(20px,3vw,40px)">
           <sc-for list="{{ r.items }}" as="it" hint-placeholder-count="4">
             <figure data-reveal="up" data-delay="{{ it.d }}" onClick="{{ it.open }}" style="cursor:zoom-in;position:relative;flex:0 0 {{ pfCardW }};aspect-ratio:4/5;margin:0;overflow:hidden;border-radius:clamp(18px,1.8vw,28px);scroll-snap-align:start;background:#DDD5CB;box-shadow:0 20px 40px -28px rgba(42,41,40,.4);transform:translateZ(0)">
               <sc-if value="{{ it.isVideo }}" hint-placeholder-val="{{ false }}">
@@ -156,7 +156,7 @@ button{font-family:inherit}
   </div>
 </section>
 
-<section id="owner" data-screen-label="04 원장 소개" style="padding:clamp(110px,13vw,200px) 0;background:#DED6CB;color:#2A2928;scroll-margin-top:40px;overflow:hidden">
+<section id="owner" data-screen-label="04 원장 소개" style="padding:clamp(72px,13vw,200px) 0;background:#DED6CB;color:#2A2928;scroll-margin-top:40px;overflow:hidden">
   <div style="max-width:1440px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(72px,9vw,140px)">
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(48px,7vw,112px);align-items:center;padding:0 clamp(20px,3vw,40px)">
       <div data-reveal="clip" style="position:relative;overflow:hidden;aspect-ratio:4/5;max-width:560px;width:100%;border-radius:clamp(20px,2vw,32px);background:#CFC6BB">
@@ -171,10 +171,10 @@ button{font-family:inherit}
             <span style="display:block;overflow:hidden"><span data-reveal="line" data-delay="280" style="display:block;font-weight:500">자연스러운 아름다움,</span></span>
           </h2>
         </div>
-        <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;padding:24px 0;border-top:1px solid rgba(42,41,40,.2);border-bottom:1px solid rgba(42,41,40,.2)">
+        <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;padding:24px 0;border-top:1px solid rgba(42,41,40,.2);border-bottom:1px solid rgba(42,41,40,.2)">
           <sc-for list="{{ ownerStats }}" as="s" hint-placeholder-count="3">
             <div data-reveal="up" data-delay="{{ s.d }}" style="display:flex;flex-direction:column;gap:8px">
-              <span style="font-size:clamp(24px,2.3vw,34px);font-weight:500;letter-spacing:-0.04em;line-height:1.1;color:#2A2928">{{ s.v }}</span>
+              <span style="font-size:clamp(18px,2.3vw,34px);font-weight:500;letter-spacing:-0.04em;line-height:1.1;color:#2A2928">{{ s.v }}</span>
               <span style="font-size:12px;line-height:1.5;color:#5E5650">{{ s.k }}</span>
             </div>
           </sc-for>
@@ -191,7 +191,7 @@ button{font-family:inherit}
         <div style="display:flex;flex-direction:column;gap:8px">
           <span style="font-family:Cormorant,serif;font-size:clamp(36px,4vw,64px);font-weight:300;line-height:1;color:#2A2928">Awards &amp; Records</span>
         </div>
-        <div style="display:flex;gap:8px">
+        <div style="display:{{ deskDisplay }};gap:8px">
           <button onClick="{{ awPrev }}" aria-label="이전" style="width:48px;height:48px;border:1px solid #2A2928;border-radius:50%;background:transparent;color:#2A2928;font-size:16px;cursor:pointer;transition:background .3s,color .3s" style-hover="background:#2A2928;color:#FFFFFF">←</button>
           <button onClick="{{ awNext }}" aria-label="다음" style="width:48px;height:48px;border:1px solid #2A2928;border-radius:50%;background:transparent;color:#2A2928;font-size:16px;cursor:pointer;transition:background .3s,color .3s" style-hover="background:#2A2928;color:#FFFFFF">→</button>
         </div>
@@ -210,7 +210,7 @@ button{font-family:inherit}
   </div>
 </section>
 
-<section id="treatments" data-screen-label="05 시술 안내" style="padding:clamp(110px,13vw,200px) clamp(20px,3vw,40px);background:#F4F0EB;scroll-margin-top:40px">
+<section id="treatments" data-screen-label="05 시술 안내" style="padding:clamp(72px,13vw,200px) clamp(20px,3vw,40px);background:#F4F0EB;scroll-margin-top:40px">
   <div style="max-width:1440px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(48px,6vw,88px)">
     <div style="display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center">
       <span data-reveal="up" style="font-family:Cormorant,serif;font-size:20px;font-style:italic;color:#8A8077">Treatments</span>
@@ -220,7 +220,7 @@ button{font-family:inherit}
       <sc-for list="{{ tx }}" as="t" hint-placeholder-count="4">
         <article data-reveal="up" data-delay="{{ t.d }}" style="display:flex;flex-direction:column;gap:22px;padding:clamp(22px,2vw,30px);background:#FFFFFF;border-radius:clamp(20px,2vw,28px);box-shadow:0 24px 48px -36px rgba(42,41,40,.35);transition:transform .5s cubic-bezier(.2,.7,.2,1)" style-hover="transform:translateY(-6px)">
           <div style="display:flex;justify-content:space-between;align-items:flex-start">
-            <span style="font-family:Cormorant,serif;font-size:clamp(30px,2.6vw,40px);font-style:italic;font-weight:300;line-height:1;color:#A0958A">{{ t.n }}</span>
+            <span style="display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:#F4F0EB;font-family:{{ numFF }};font-style:italic;font-size:20px;font-weight:400;line-height:1;padding-top:2px;color:#6B625A">{{ t.n }}</span>
             <span style="font-family:Cormorant,serif;font-size:17px;font-style:italic;color:#8A8077">{{ t.en }}</span>
           </div>
           <div style="position:relative;aspect-ratio:1/1;border-radius:50%;overflow:hidden;width:72%;align-self:center;background:#E9E3DC;outline:1px solid #E2DBD2;outline-offset:8px">
@@ -239,7 +239,7 @@ button{font-family:inherit}
         <span data-reveal="linex" style="position:absolute;left:28px;right:28px;top:28px;height:1px;background:#A0958A;display:{{ stepLine }}"></span>
         <sc-for list="{{ steps2 }}" as="s" hint-placeholder-count="5">
           <li data-reveal="up" data-delay="{{ s.d }}" style="position:relative;display:flex;flex-direction:{{ stepDir }};gap:16px;align-items:flex-start">
-            <span style="flex:none;width:56px;height:56px;border-radius:50%;background:#FFFFFF;display:flex;align-items:center;justify-content:center;font-family:Cormorant,serif;font-size:22px;font-style:italic;color:#2A2928;box-shadow:0 8px 20px -12px rgba(42,41,40,.4)">{{ s.n }}</span>
+            <span style="flex:none;width:56px;height:56px;border-radius:50%;background:#FFFFFF;display:flex;align-items:center;justify-content:center;font-family:{{ numFF }};font-style:italic;font-size:23px;font-weight:400;letter-spacing:0;line-height:1;padding-top:2px;color:#6B625A;box-shadow:0 8px 20px -12px rgba(42,41,40,.4)">{{ s.n }}</span>
             <span style="display:flex;flex-direction:column;gap:6px"><span style="font-size:16px;font-weight:600;letter-spacing:-0.02em">{{ s.t }}</span><span style="font-size:13px;line-height:1.7;color:#4A4540">{{ s.desc }}</span></span>
           </li>
         </sc-for>
@@ -248,7 +248,7 @@ button{font-family:inherit}
   </div>
 </section>
 
-<section id="review" data-screen-label="06 후기" style="padding:clamp(110px,13vw,200px) 0 clamp(90px,10vw,160px);background:#E9E3DC;scroll-margin-top:40px;overflow:hidden">
+<section id="review" data-screen-label="06 후기" style="padding:clamp(72px,13vw,200px) 0 clamp(90px,10vw,160px);background:#E9E3DC;scroll-margin-top:40px;overflow:hidden">
   <div style="max-width:1440px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(40px,5vw,72px)">
     <div style="display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center;padding:0 20px">
       <span data-reveal="up" style="font-family:Cormorant,serif;font-size:20px;font-style:italic;color:#8A8077">Client Notes</span>
@@ -261,7 +261,7 @@ button{font-family:inherit}
           <div style="overflow:hidden;height:100%">
             <div style="display:flex;flex-direction:column;gap:clamp(12px,1.4vw,20px);animation:{{ c.anim }}" style-hover="animation-play-state:paused">
               <sc-for list="{{ c.items }}" as="r" hint-placeholder-count="6">
-                <div onClick="{{ r.open }}" style="flex:none;padding:10px;background:#FFFFFF;border-radius:22px;box-shadow:0 18px 40px -28px rgba(42,41,40,.4);cursor:zoom-in">
+                <div onClick="{{ r.open }}" style="flex:none;padding:{{ rvPad }};background:#FFFFFF;border-radius:{{ rvR }};box-shadow:0 18px 40px -28px rgba(42,41,40,.4);cursor:zoom-in">
                   <div role="img" aria-label="고객 후기" style="width:100%;aspect-ratio:{{ r.ar }};border-radius:14px;background-image:{{ r.bg }};background-size:cover;background-position:top center"></div>
                 </div>
               </sc-for>
@@ -273,7 +273,7 @@ button{font-family:inherit}
   </div>
 </section>
 
-<section data-screen-label="07 메시지" style="padding:clamp(140px,18vw,280px) clamp(20px,3vw,40px);background:#CBC2B8;text-align:center">
+<section data-screen-label="07 메시지" style="padding:clamp(96px,18vw,280px) clamp(20px,3vw,40px);background:#CBC2B8;text-align:center">
   <div style="max-width:760px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:28px">
     <p style="margin:0;font-size:clamp(22px,2.4vw,32px);font-weight:300;line-height:1.65;letter-spacing:-0.035em;color:#2A2928">
       <span style="display:block;overflow:hidden"><span data-reveal="line" style="display:block">진하게 채우는 것보다</span></span>
@@ -310,7 +310,7 @@ button{font-family:inherit}
     </div>
     <div onClick="{{ lbxStop }}" style="display:flex;align-items:center;justify-content:space-between;gap:16px;width:min(92vw,calc(78vh * .8))">
       <button onClick="{{ lbxPrev }}" aria-label="이전" style="flex:none;width:48px;height:48px;border-radius:50%;border:1px solid rgba(255,255,255,.4);background:transparent;color:#FFFFFF;font-size:16px;cursor:pointer">←</button>
-      <span style="display:flex;flex-direction:column;align-items:center;gap:2px;color:#FFFFFF;text-align:center"><span style="font-size:14px;font-weight:500">{{ lbx.t }}</span><span style="font-family:Cormorant,serif;font-size:16px;color:#CFC6BB">{{ lbx.no }}</span></span>
+      <span style="display:flex;flex-direction:column;align-items:center;gap:2px;color:#FFFFFF;text-align:center"><span style="font-size:14px;font-weight:500">{{ lbx.t }}</span><span style="font-family:{{ numFF }};font-style:italic;font-size:17px;color:#CFC6BB">{{ lbx.no }}</span></span>
       <button onClick="{{ lbxNext }}" aria-label="다음" style="flex:none;width:48px;height:48px;border-radius:50%;border:1px solid rgba(255,255,255,.4);background:transparent;color:#FFFFFF;font-size:16px;cursor:pointer">→</button>
     </div>
     <button onClick="{{ lbxClose }}" aria-label="닫기" style="position:absolute;top:14px;right:14px;width:48px;height:48px;border:0;background:transparent;color:#FFFFFF;font-size:30px;font-weight:200;cursor:pointer">×</button>
@@ -323,7 +323,7 @@ button{font-family:inherit}
   </div>
 </sc-if>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;showGuides&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;작업용&quot;,&quot;label&quot;:&quot;작업용 메모 표시&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;numFont&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;instrument&quot;,&quot;bodoni&quot;,&quot;garamond&quot;],&quot;default&quot;:&quot;instrument&quot;,&quot;tsType&quot;:&quot;'instrument'|'bodoni'|'garamond'&quot;,&quot;section&quot;:&quot;숫자&quot;,&quot;label&quot;:&quot;숫자 글씨체&quot;},&quot;showGuides&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;작업용&quot;,&quot;label&quot;:&quot;작업용 메모 표시&quot;}}">
 const EASE = 'cubic-bezier(.2,.7,.2,1)';
 const pad = n => String(n).padStart(2, '0');
 const bg = f => `url(img/${f})`;
@@ -499,24 +499,31 @@ class Component extends DCLogic {
     document.addEventListener('click', this.clk, true);
   }
   setupFlow() {
-    const el = document.querySelector('[data-autoflow]');
-    if (!el) return;
-    el.addEventListener('mouseenter', () => { el.dataset.hover = '1'; });
-    el.addEventListener('mouseleave', () => { delete el.dataset.hover; el._x = el.scrollLeft; });
+    const els = [...document.querySelectorAll('[data-autoflow]')];
+    if (!els.length) return;
+    const SP = 0.45;
+    els.forEach(el => {
+      el.addEventListener('mouseenter', () => { el.dataset.hover = '1'; });
+      el.addEventListener('mouseleave', () => { delete el.dataset.hover; el._x = el.scrollLeft; });
+    });
+    const half = el => { const f = el.querySelectorAll('figure'), n = f.length / 2; return n >= 1 && f[n] ? f[n].offsetLeft - f[0].offsetLeft : 0; };
     const tick = () => {
-      const max = el.scrollWidth - el.clientWidth;
-      if (!el.dataset.hover && Date.now() > (+el.dataset.pause || 0) && max > 0) {
-        el._x = (el._x ?? el.scrollLeft) + 0.4;
-        if (el._x >= max) { el._x = 0; }
-        el.scrollLeft = el._x;
-      } else el._x = el.scrollLeft;
+      els.forEach(el => {
+        if (!el._vis) return;
+        const H = half(el); if (!H) return;
+        const dir = +el.dataset.dir || 1;
+        if (el._x == null) { el._x = dir < 0 ? H : 0; el.scrollLeft = el._x; }
+        if (!el.dataset.hover && Date.now() > (+el.dataset.pause || 0)) {
+          el._x += SP * dir;
+          if (el._x >= H) el._x -= H; else if (el._x <= 0) el._x += H;
+          el.scrollLeft = el._x;
+        } else { el._x = el.scrollLeft; if (el._x >= H) { el._x -= H; el.scrollLeft = el._x; } else if (el._x <= 0) { el._x += H; el.scrollLeft = el._x; } }
+      });
       this.raf = requestAnimationFrame(tick);
     };
-    this.fio = new IntersectionObserver(([e]) => {
-      if (e.isIntersecting && !this.raf) this.raf = requestAnimationFrame(tick);
-      else if (!e.isIntersecting && this.raf) { cancelAnimationFrame(this.raf); this.raf = null; }
-    });
-    this.fio.observe(el);
+    this.fio = new IntersectionObserver(es => es.forEach(e => { e.target._vis = e.isIntersecting; }));
+    els.forEach(el => this.fio.observe(el));
+    this.raf = requestAnimationFrame(tick);
   }
   renderVals() {
     const m = this.state.w < 860;
@@ -527,7 +534,8 @@ class Component extends DCLogic {
     const hc = HERO_COPY.c;
     const ba = pf === 'all' ? BA : BA.filter(x => x.k === pf);
     return {
-      mobile: m, guides, heroLine: line,
+      mobile: m, guides, heroLine: line, stickyPos: this.state.w < 1100 ? 'static' : 'sticky',
+      numFF: ({ instrument: '"Instrument Serif",serif', bodoni: '"Bodoni Moda",serif', garamond: '"EB Garamond",serif' })[this.props.numFont ?? 'instrument'] || '"Instrument Serif",serif',
       deskDisplay: m ? 'none' : 'flex', mobDisplay: m ? 'block' : 'none',
       cta: !top ? { bg: '#2A2928', fg: '#FFFFFF', sh: 'none' } : { bg: '#FFFFFF', fg: '#2A2928', sh: '0 6px 20px -8px rgba(42,41,40,.35)' },
       hdr: { bg: open || !top ? 'rgba(244,240,235,.92)' : 'rgba(255,255,255,0)', line: open || !top ? '#DCD4CA' : 'rgba(0,0,0,0)', y: hide && !open ? '-100%' : '0', blur: open || !top ? 'blur(12px)' : 'none' },
@@ -576,15 +584,17 @@ class Component extends DCLogic {
       ].map(([t, en, src, pos, desc, tags], i) => ({ t, en, bg: `url(${src})`, pos, desc, tags, n: pad(i + 1), d: i * 110 })),
       steps2: [['상담', '지금 모습 사진을 보내주시면 원장이 직접 봐 드려요.'], ['디자인', '얼굴 비율을 재고 모양을 함께 정합니다.'], ['시술', '상담한 원장이 그대로 시술합니다.'], ['주의사항 안내', '시술 후 세안 · 화장 · 관리 방법을 자세히 알려드려요.'], ['리터치', '색이 자리 잡으면 빈 곳을 채워 완성해요.']].map(([t, desc], i) => ({ t, desc, n: pad(i + 1), d: 200 + i * 140 })),
       stepCols: m ? '1fr' : 'repeat(5,minmax(0,1fr))', stepDir: m ? 'row' : 'column', stepLine: m ? 'none' : 'block',
-      rvH: m ? '620px' : '820px',
-      rvCols: m ? '1fr' : 'repeat(3,minmax(0,1fr))',
-      rvColumns: (() => { const n = m ? 1 : 3; return Array.from({ length: n }, (_, c) => { const list = RV.items.map((x, i) => ({ x, i })).filter(o => n === 1 || o.i % n === c); const items = [...list, ...list].map(({ x, i }) => ({ bg: `url(${x[1]})`, ar: x[2], open: () => this.setState({ lbx: { k: 'rv', i } }) })); return { items, anim: `${c % 2 ? 'rvDown' : 'rvUp'} ${(m ? 60 : 44) + c * 8}s linear infinite` }; }); })(),
+      rvPad: m ? '6px' : '10px', rvR: m ? '14px' : '22px',
+      rvH: m ? '560px' : '820px',
+      rvCols: m ? 'repeat(2,minmax(0,1fr))' : 'repeat(3,minmax(0,1fr))',
+      rvColumns: (() => { const n = m ? 2 : 3; return Array.from({ length: n }, (_, c) => { const list = RV.items.map((x, i) => ({ x, i })).filter(o => n === 1 || o.i % n === c); const items = [...list, ...list].map(({ x, i }) => ({ bg: `url(${x[1]})`, ar: x[2], open: () => this.setState({ lbx: { k: 'rv', i } }) })); return { items, anim: `${c % 2 ? 'rvDown' : 'rvUp'} ${(m ? 60 : 44) + c * 8}s linear infinite` }; }); })(),
       pfCardW: m ? '76vw' : 'clamp(240px, calc((min(100vw, 1440px) - 80px - 48px) / 3.6), 400px)',
-      pfRows: Object.keys(PF).map(k => {
+      pfRows: Object.keys(PF).map((k, ri) => {
         const C = PF[k], id = 'pfrow-' + k;
-        const sc = d => { const el = document.getElementById(id); if (!el) return; const c = el.querySelector('figure'); el.scrollBy({ left: d * ((c ? c.offsetWidth : 300) + 14), behavior: 'smooth' }); };
-        return { id, t: C.t, en: C.en, n: C.items.length, prev: () => sc(-1), next: () => sc(1),
-          items: C.items.map(([ty, src], i) => ({ open: () => this.setState({ lbx: { k, i } }), isVideo: ty === 'v', isImage: ty !== 'v', src, bg: ty === 'v' ? 'none' : `url(${src})`, alt: `${C.t} 비포 애프터 ${i + 1}`, kind: ty === 'v' ? 'VIDEO' : 'BEFORE · AFTER', dot: ty === 'v' ? '#C4553F' : '#2A2928', d: Math.min(i, 3) * 90 })) };
+        const sc = d => { const el = document.getElementById(id); if (!el) return; el.dataset.pause = Date.now() + 4000; const c = el.querySelector('figure'); el.scrollBy({ left: d * ((c ? c.offsetWidth : 300) + 14), behavior: 'smooth' }); setTimeout(() => { el._x = el.scrollLeft; }, 600); };
+        const one = C.items.map(([ty, src], i) => ({ open: () => this.setState({ lbx: { k, i } }), isVideo: ty === 'v', isImage: ty !== 'v', src, bg: ty === 'v' ? 'none' : `url(${src})`, alt: `${C.t} 비포 애프터 ${i + 1}`, kind: ty === 'v' ? 'VIDEO' : 'BEFORE · AFTER', dot: ty === 'v' ? '#C4553F' : '#2A2928', d: Math.min(i, 3) * 90 }));
+        return { id, dir: ri % 2 ? -1 : 1, t: C.t, en: C.en, n: pad(C.items.length), prev: () => sc(-1), next: () => sc(1),
+          items: [...one, ...one.map(o => ({ ...o, d: 0 }))] };
       }),
       ...(() => {
         const C = PF[this.state.pc], items = C.items, pi = Math.min(this.state.pi, items.length - 1), it = items[pi], vid = it[0] === 'v', fade = this.state.pfade;
